@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="dialogModal.js" defer></script>
+    <script src="dialogModal.js"></script>
 </head>
 <body>
-    <dialog>
-        <button></button>
-    </dialog>
+    <div id="dialog-parent-container"></div>
+    <button id="open-dialog-button">Open</button>
+    <script>
+        const dialogParentContainer = document.getElementById("dialog-parent-container");
+        const openDialogButton = document.getElementById("open-dialog-button");
+        const dialogContent = document.createElement("p");
+        dialogContent.innerText= "Hello World";
+        createDialogElement({parentElement: dialogParentContainer, clickToOpenElement: openDialogButton, dialogContent: dialogContent});
+    </script>
 </body>
 </html>
