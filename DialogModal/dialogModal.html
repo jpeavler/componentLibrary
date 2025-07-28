@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="dialogModal.js"></script>
+    <script src="form.js"></script>
 </head>
 <body>
     <div id="dialog-parent-container"></div>
@@ -12,8 +13,25 @@
     <script>
         const dialogParentContainer = document.getElementById("dialog-parent-container");
         const openDialogButton = document.getElementById("open-dialog-button");
+
         const dialogContent = document.createElement("p");
-        dialogContent.innerText= "Hello World";
+
+        const personFields = [
+            {
+                fieldName: "name",
+                fieldLabel: "Name",
+                fieldType: "text"
+            }
+        ]
+        const personForm = createForm({
+            parentElement: dialogContent,
+            formClassList: "person-form",
+            headingText: "Add Person",
+            fields: personFields,
+            submitFormButtonText: "Create Person",
+            submitFormFunction: () => {console.log("hello world!")}
+        })
+
         createDialogElement({parentElement: dialogParentContainer, clickToOpenElement: openDialogButton, dialogContent: dialogContent});
     </script>
 </body>
